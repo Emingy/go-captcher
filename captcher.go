@@ -4,6 +4,7 @@ import (
 	"github.com/joho/godotenv"
 	"math/rand"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 )
@@ -15,7 +16,8 @@ type Captcha struct {
 }
 
 func (c *Captcha) GenerateCaptcha() {
-	godotenv.Load("./config.env")
+	envPath := filepath.Join(os.Getenv("HOME"), ".env")
+	godotenv.Load(envPath)
 	env, _ := os.LookupEnv("EMOJIS")
 	emojis := strings.Split(env, ",")
 	min := 0
