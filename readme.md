@@ -1,6 +1,10 @@
 # Go captcher 
 Go module for generate and verify captcha
 
+## How install
+```bash
+    go get github.com/Emingy/go-captcher
+```
 ## How to use
 ### Generate captcha
 ```go
