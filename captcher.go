@@ -5,24 +5,18 @@ import (
 	"time"
 )
 
-type Captcher interface {
-	generateCaptcha()
-	verifyCaptcha()
-	captcha
+type Captcha struct {
+	Length      int
+	Variants    []string
+	TrueVariant string
 }
 
-type captcha struct {
-	length      int
-	variants    []string
-	trueVariant string
-}
-
-func (c *captcha) generateCaptcha() {
+func (c *Captcha) GenerateCaptcha() {
 	config := Config{}
 	config.initConfig()
 	min := 0
 	max := len(config.emojis)
-	count := c.length
+	count := c.Length
 
 	rand.Seed(time.Now().UnixNano())
 
@@ -33,14 +27,14 @@ func (c *captcha) generateCaptcha() {
 	}
 
 	for n := range nums {
-		c.variants = append(c.variants, config.emojis[n])
+		c.Variants = append(c.Variants, config.emojis[n])
 	}
 
-	c.trueVariant = c.variants[rand.Intn((count-1)-0+1)+0]
+	c.TrueVariant = c.Variants[rand.Intn((count-1)-0+1)+0]
 }
 
-func (c *captcha) verifyCaptcha(v string) bool {
-	if v == c.trueVariant {
+func (c *Captcha) VerifyCaptcha(v string) bool {
+	if v == c.TrueVariant {
 		return true
 	}
 	return false
