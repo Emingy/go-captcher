@@ -8,6 +8,7 @@ import (
 type Captcher interface {
 	generateCaptcha()
 	verifyCaptcha()
+	captcha
 }
 
 type captcha struct {
