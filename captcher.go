@@ -1,13 +1,11 @@
 package gocaptcher
 
 import (
-	"github.com/joho/godotenv"
 	"math/rand"
-	"os"
-	"path/filepath"
-	"strings"
 	"time"
 )
+
+var emojis []string = []string{"🐀,🐁,🐭,🐹,🐂,🐃,🐄,🐮,🐅,🐆,🐯,🐇,🐰,🐈,🐱,🐎,🐴,🐏,🐑,🐐,🐓,🐔,🐤,🐣,🐥,🐦,🐧,🐘,🐪,🐫,🐗,🐖,🐷,🐕,🐩,🐶,🐺,🐻,🐨,🐼,🐒,🐉,🐲,🐊,🐍,🐢,🐸,🐋,🐳,🐬,🐙,🐟,🐠,🐡,🐚,🐌,🐛,🐜,🐝,🐞"}
 
 type Captcha struct {
 	Length      int
@@ -16,11 +14,6 @@ type Captcha struct {
 }
 
 func (c *Captcha) GenerateCaptcha() {
-	path, _ := os.Getwd()
-	envPath := filepath.Join(path, "/config.env")
-	godotenv.Load(envPath)
-	env, _ := os.LookupEnv("EMOJIS")
-	emojis := strings.Split(env, ",")
 	min := 0
 	max := len(emojis)
 	count := c.Length
