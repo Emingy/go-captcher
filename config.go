@@ -1,4 +1,4 @@
-package main
+package gocaptcher
 
 import (
 	"github.com/joho/godotenv"
