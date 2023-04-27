@@ -1,4 +1,4 @@
-package gocaptcher
+package main
 
 import (
 	"math/rand"
