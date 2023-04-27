@@ -10,7 +10,6 @@ Go module for generate and verify captcha
 ```go
     c := captcha{
         length      int
-        variants    []string
     }
 	c.generateCaptcha()
 ```
