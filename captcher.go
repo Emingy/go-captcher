@@ -2,6 +2,8 @@ package gocaptcher
 
 import (
 	"math/rand"
+	"os"
+	"strings"
 	"time"
 )
 
@@ -12,10 +14,10 @@ type Captcha struct {
 }
 
 func (c *Captcha) GenerateCaptcha() {
-	config := config{}
-	config.initConfig()
+	env, _ := os.LookupEnv("EMOJIS")
+	emojis := strings.Split(env, ",")
 	min := 0
-	max := len(config.emojis)
+	max := len(emojis)
 	count := c.Length
 
 	rand.Seed(time.Now().UnixNano())
@@ -27,7 +29,7 @@ func (c *Captcha) GenerateCaptcha() {
 	}
 
 	for n := range nums {
-		c.Variants = append(c.Variants, config.emojis[n])
+		c.Variants = append(c.Variants, emojis[n])
 	}
 
 	c.TrueVariant = c.Variants[rand.Intn((count-1)-0+1)+0]
