@@ -3,7 +3,7 @@ Go module for generate and verify captcha
 
 ## How install
 ```bash
-    go get github.com/Emingy/go-captcher
+    go get github.com/Emingy/gocaptcher
 ```
 ## How to use
 ### Generate captcha
