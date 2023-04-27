@@ -1,6 +1,7 @@
 package gocaptcher
 
 import (
+	"github.com/joho/godotenv"
 	"math/rand"
 	"os"
 	"strings"
@@ -14,6 +15,7 @@ type Captcha struct {
 }
 
 func (c *Captcha) GenerateCaptcha() {
+	godotenv.Load("config.env")
 	env, _ := os.LookupEnv("EMOJIS")
 	emojis := strings.Split(env, ",")
 	min := 0
