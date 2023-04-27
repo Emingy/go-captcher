@@ -16,7 +16,8 @@ type Captcha struct {
 }
 
 func (c *Captcha) GenerateCaptcha() {
-	envPath := filepath.Join(os.Getenv("HOME"), ".env")
+	path, _ := os.Getwd()
+	envPath := filepath.Join(path, "/config.env")
 	godotenv.Load(envPath)
 	env, _ := os.LookupEnv("EMOJIS")
 	emojis := strings.Split(env, ",")
