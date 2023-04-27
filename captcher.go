@@ -12,7 +12,7 @@ type Captcha struct {
 }
 
 func (c *Captcha) GenerateCaptcha() {
-	config := Config{}
+	config := config{}
 	config.initConfig()
 	min := 0
 	max := len(config.emojis)

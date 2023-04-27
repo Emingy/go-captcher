@@ -6,11 +6,11 @@ import (
 	"strings"
 )
 
-type Config struct {
+type config struct {
 	emojis []string
 }
 
-func (c *Config) initConfig() {
+func (c *config) initConfig() {
 	// loads values from .env into the system
 	if err := godotenv.Load("config.env"); err != nil {
 		panic("No config.env file found")
