@@ -1,4 +1,4 @@
-module github.com/Emingy/go-captcher
+module gocaptcher
 
 go 1.17
 
