@@ -15,7 +15,7 @@ type Captcha struct {
 
 func (c *Captcha) GenerateCaptcha() {
 	min := 0
-	max := len(emojis)
+	max := len(emojis) - 1
 	count := c.Length
 
 	rand.Seed(time.Now().UnixNano())
